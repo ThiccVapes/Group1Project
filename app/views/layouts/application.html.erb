@@ -1,14 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
+  <head>
+    <title>Group1Project</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+      <hr>
+      <nav>
+        <!--<%=link_to 'Home', controller: 'home', action: 'index' %>-->
+        <%=link_to_unless_current 'Home', root_url %>
+        <!--<%=link_to 'About', controller: 'home', action: 'about' %>-->
+        <%=link_to_unless_current 'About', about_url %>
+        <!-- OR get 'about', to: 'home#about'-->
+        <%=link_to_unless_current 'Contact', contact_url %>
+        <%=link_to_unless_current 'Recipes', recipes_url %>
+      </nav>  
+  <body>
+
+    <div id="game_space">
+      <%= yield %>
+    </div>
+  </body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en-US">
 <head>
-  <title>Group1Project</title>
+  <title><%= @title %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
-</body>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Our Cookbook</h1>
+        <% if logged_in? %>
+          You are logged in as <%= current_user.username %>
+        <% end %>
+      </header>
+      <hr>
+      <nav>
+        <!--<%=link_to 'Home', controller: 'home', action: 'index' %>-->
+        <%=link_to_unless_current 'Home', root_url %>
+        <!--<%=link_to 'About', controller: 'home', action: 'about' %>-->
+        <%=link_to_unless_current 'About', about_url %>
+        <!-- OR get 'about', to: 'home#about'-->
+        <%=link_to_unless_current 'Contact', contact_url %>
+        <%=link_to_unless_current 'Recipes', recipes_url %>
+      </nav>
+      <section class="content">
+        <%= yield %>
+      </section>
+      <hr>
+      <footer>
+        <h4>Copyright <%=Date.today.year %> OurCookbook</h4>
+      </footer>
+    </div>    
+  </body>
 </html>

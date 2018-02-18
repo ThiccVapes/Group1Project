@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
+  get 'home/about'
+
   resources :plays
   resources :scores
   resources :users
