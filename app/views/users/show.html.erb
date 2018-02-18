@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Userid:</strong>
+  <%= @user.userID %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Level reached:</strong>
+  <%= @user.level_reached %>
+</p>
+
+<p>
+  <strong>Googleid:</strong>
+  <%= @user.googleID %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @user.start_date %>
+</p>
+
+<p>
+  <strong>Terms and services:</strong>
+  <%= @user.terms_and_services %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @user.password %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @user.picture %>
+</p>
+
+<p>
+  <strong>Small picture:</strong>
+  <%= @user.small_picture %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
